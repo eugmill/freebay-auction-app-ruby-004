@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "thin"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -43,17 +45,28 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 
 group :test, :development do
   gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"
-  gem "better_errors"
-  gem "binding_of_caller"
   gem "terminal-notifier-guard"
   gem "factory_girl_rails"
   gem "simplecov"
   gem "database_cleaner"
   gem "guard", ">=2.1.0"
   gem "guard-rspec"
+  gem "launchy"
+  gem "quiet_assets"
+  gem "chronic"
+  gem "paperclip", "~> 3.0"
+end
+
+group :test do
+  gem "timecop"
+  gem "rack_session_access"
 end
