@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>Code coverage for Auction-app-ruby-004</title>
+    <title>Code coverage for Freebay-auction-app-ruby-004</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.8.0/application.js' type='text/javascript'></script>    
     <link href='./assets/0.8.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-17T16:58:06-04:00">2014-03-17T16:58:06-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-17T17:16:28-04:00">2014-03-17T17:16:28-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -51,9 +51,9 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#66387202482c2a923585f2bfc1e7a108e69eb7c2" class="src_link" title="app/models/auction.rb">app/models/auction.rb</a></td>
+        <td class="strong"><a href="#0e4e2a7ff43f640f4755a3aef1a0bdfb62a73489" class="src_link" title="app/models/auction.rb">app/models/auction.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>4</td>
+        <td>6</td>
         <td>3</td>
         <td>3</td>
         <td>0</td>
@@ -61,7 +61,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#a0807d37850d4fb8a5eac77f0031e4e54045887d" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
+        <td class="strong"><a href="#fc1953fe2652b0a1bc8b25a796c045df10252c65" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>4</td>
         <td>3</td>
@@ -146,9 +146,9 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#66387202482c2a923585f2bfc1e7a108e69eb7c2" class="src_link" title="app/models/auction.rb">app/models/auction.rb</a></td>
+        <td class="strong"><a href="#0e4e2a7ff43f640f4755a3aef1a0bdfb62a73489" class="src_link" title="app/models/auction.rb">app/models/auction.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>4</td>
+        <td>6</td>
         <td>3</td>
         <td>3</td>
         <td>0</td>
@@ -156,7 +156,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#a0807d37850d4fb8a5eac77f0031e4e54045887d" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
+        <td class="strong"><a href="#fc1953fe2652b0a1bc8b25a796c045df10252c65" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>4</td>
         <td>3</td>
@@ -291,7 +291,7 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="66387202482c2a923585f2bfc1e7a108e69eb7c2">
+        <div class="source_table" id="0e4e2a7ff43f640f4755a3aef1a0bdfb62a73489">
   <div class="header">
     <h3>app/models/auction.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -314,7 +314,7 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  has_many :bids</code>
+          <code class="ruby">  has_many :bids, :dependent =&gt; :destroy</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
@@ -326,6 +326,18 @@
         <li class="never" data-hits="" data-linenumber="4">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
           <code class="ruby">end</code>
         </li>
       
@@ -333,7 +345,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="a0807d37850d4fb8a5eac77f0031e4e54045887d">
+        <div class="source_table" id="fc1953fe2652b0a1bc8b25a796c045df10252c65">
   <div class="header">
     <h3>app/models/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -356,7 +368,7 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  has_many :auctions</code>
+          <code class="ruby">  has_many :listings, :class_name =&gt; &quot;Auction&quot;, :foreign_key =&gt; &quot;seller_id&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">

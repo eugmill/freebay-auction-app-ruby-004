@@ -1,19 +1,21 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/eugenemillerman/Dropbox/projects/flatiron_day31/auction-app-ruby-004/app/models/auction.rb": [
+      "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/models/auction.rb": [
         1,
         1,
         1,
+        null,
+        null,
         null
       ],
-      "/Users/eugenemillerman/Dropbox/projects/flatiron_day31/auction-app-ruby-004/app/models/user.rb": [
+      "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/models/user.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1395089886
+    "timestamp": 1395090988
   }
 }
