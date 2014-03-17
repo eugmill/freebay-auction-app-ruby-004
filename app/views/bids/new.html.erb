@@ -1,0 +1,9 @@
+<%= form_for @bid, :url => auction_bids_path(@auction) do |f| %>
+
+  <div>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+  </div>
+  <%= f.submit %>
+
+<% end %>

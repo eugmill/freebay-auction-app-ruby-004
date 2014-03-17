@@ -1,0 +1,8 @@
+<h2><%= @auction.title %></h2>
+<p><%= @auction.description %></p>
+
+<% @bids.each do |bid| %>
+  <div>
+    <%= bid.amount  %>
+  </div>
+<% end %>
