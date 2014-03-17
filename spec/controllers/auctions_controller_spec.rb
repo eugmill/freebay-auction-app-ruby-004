@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'spec_helper' 
 
 describe 'Part 1 AuctionsController Specs', :part_1_specs => true do
   let!(:user) { create(:user) }

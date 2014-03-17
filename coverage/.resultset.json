@@ -1,12 +1,68 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/models/auction.rb": [
+      "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/controllers/auctions_controller.rb": [
         1,
+        null,
         1,
         1,
         null,
         null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        8,
+        8,
+        4,
+        null,
+        4,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        10,
+        10,
+        10,
+        6,
+        null,
+        4,
+        4,
+        null,
+        null,
+        null,
+        1,
+        8,
+        8,
+        7,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        18,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
         null
       ],
       "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/models/user.rb": [
@@ -14,8 +70,25 @@
         1,
         1,
         null
+      ],
+      "/Users/georgemayer/Development/code/flatiron/freebay-auction-app-ruby-004/app/models/auction.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        20,
+        null,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1395090988
+    "timestamp": 1395093923
   }
 }

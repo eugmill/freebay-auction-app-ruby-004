@@ -1,0 +1,18 @@
+<%= form_for @auction do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :end_time %>
+    <%= f.date_select :end_time, :default => Date.today %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

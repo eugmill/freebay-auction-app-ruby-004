@@ -1,0 +1,6 @@
+<% @auctions.each do |auction| %>
+<h2><%= link_to auction.title, auction %></h2>
+<p><%= auction.description %></p>
+<p><%= auction.end_time %></p>
+<hr />
+<% end %>
