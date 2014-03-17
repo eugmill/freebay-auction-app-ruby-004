@@ -1,7 +1,19 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/eugenemillerman/Dropbox/projects/flatiron_day31/auction-app-ruby-004/app/models/auction.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/eugenemillerman/Dropbox/projects/flatiron_day31/auction-app-ruby-004/app/models/user.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
     },
-    "timestamp": 1395088912
+    "timestamp": 1395089886
   }
 }

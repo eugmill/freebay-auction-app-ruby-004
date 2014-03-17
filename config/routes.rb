@@ -1,4 +1,8 @@
 AuctionApp::Application.routes.draw do
+  resources :users
+
+  resources :auctions
+
   resources :bids
 
   # The priority is based upon order of creation: first created -> highest priority.

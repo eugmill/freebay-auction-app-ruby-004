@@ -1,0 +1,20 @@
+Models : 
+
+Auction -
+  start_date
+  end_date
+
+  has_one item
+  belongs_to user
+  has_many bids
+  has_many bidders, through bids
+
+Bid
+  belongs_to auction
+  belongs_to user
+
+Item
+  belongs_to auction
+
+User
+  has_many auctions, through bids
