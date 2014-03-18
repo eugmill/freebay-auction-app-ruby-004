@@ -1,0 +1,9 @@
+<%= form_tag do %>
+  <h2>login</h2> <br />
+  <%= label_tag :"user[name]", "Name" %>
+  <%= text_field_tag :"user[name]" %>
+  <%= label_tag :"user[password]", "Password" %>
+  <%= text_field_tag :"user[password]" %>
+  <%= submit_tag "Login" %>
+<% end %>
+

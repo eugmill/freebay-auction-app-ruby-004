@@ -15,6 +15,13 @@
   <p class='notice'><%=h flash[:notice] %></p>
 <% end -%>
 
+<% if current_user %>
+
+<%= "logged in as #{current_user.name}" %>
+<%= link_to "Logout", logout_path %>
+
+<% end %>
+
 <%= yield %>
 
 </body>

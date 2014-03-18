@@ -5,6 +5,10 @@ AuctionApp::Application.routes.draw do
     resources :bids
   end
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   # get '/auction/:index/bids/new' => 'bids#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
