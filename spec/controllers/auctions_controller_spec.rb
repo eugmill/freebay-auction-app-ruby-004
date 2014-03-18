@@ -118,6 +118,7 @@ describe 'Part 1 AuctionsController Specs', :part_1_specs => true do
       context 'an active auction' do
         before(:each) do
           Timecop.freeze(Chronic.parse('Jan 1 2014'))
+          binding.pry
           patch :update, { id: auction.id, auction: {
                                                      title: "Auction_1",
                                                      description: "Updated.",

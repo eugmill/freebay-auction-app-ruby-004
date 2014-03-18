@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+  before_action :require_login, only: [:create, :update]
 
   def index
     @auctions = Auction.get_active_auctions
@@ -14,7 +15,7 @@ class AuctionsController < ApplicationController
       redirect_to @auction 
     else 
       flash[:error] = @auction.errors.full_messages
-      redirect_to auctions_path
+      render 'new'
     end
   end
 
