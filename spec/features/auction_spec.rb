@@ -79,7 +79,7 @@ feature 'Part 1 Auction Feature Specs', :part_1_specs => true do
       given!(:high_bid) { create(:high_bid) }
 
       before(:each) do
-        User.find_or_create_by(id: high_bid.bidder_id).update(name: "Avi Flombaum")
+        User.find_or_create_by(id: high_bid.bidder_id).update(name: "Avi Flombaum", password: "test", password_confirmation: "test")
       end
 
       after(:each) do
@@ -128,7 +128,7 @@ feature 'Part 1 Auction Feature Specs', :part_1_specs => true do
 
     feature 'edit auction' do
       given!(:auction) { create(:auction) }
-      given!(:user) { User.create(id: auction.seller_id, name: "User Name") }
+      given!(:user) { User.create(id: auction.seller_id, name: "User Name", password: "test", password_confirmation: "test") }
       
       before(:each) do
         login_with(user.id)
@@ -159,7 +159,7 @@ feature 'Part 1 Auction Feature Specs', :part_1_specs => true do
 
     feature 'delete an auction' do
       given!(:auction) { create(:auction) }
-      given!(:user) { User.create(id: auction.seller_id, name: "Seller Name") }
+      given!(:user) { User.create(id: auction.seller_id, name: "Seller Name", password: "test", password_confirmation: "test") }
 
       before(:each) do
         login_with(user.id)
@@ -283,7 +283,7 @@ feature 'Part 2 Auction Feature Specs', :part_2_specs => true do
         end
 
         scenario 'on an auction created by the logged in user' do
-          User.create(id: auction.seller_id, name: 'random_user')
+          User.create(id: auction.seller_id, name: 'random_user', password: "test", password_confirmation: "test")
           login_with(auction.seller_id)
           visit new_auction_bid_path(auction)
           fill_in 'Amount', with: 2000
@@ -308,8 +308,8 @@ end
 feature 'Part 3 Auction Feature Specs', :part_3_specs => true do
   feature 'Auction' do
     let!(:auction) { create(:auction) }
-    let!(:user_1) { User.create(id: auction.seller_id, name: 'user_1') }
-    let!(:user_2) { User.create(id: auction.seller_id + 1, name: 'user_2') }
+    let!(:user_1) { User.create(id: auction.seller_id, name: 'user_1', password: "test", password_confirmation: "test") }
+    let!(:user_2) { User.create(id: auction.seller_id + 1, name: 'user_2', password: "test", password_confirmation: "test") }
     given!(:auction_with_image) { build(:auction) }
     given!(:user_with_image) { create(:user) }
 

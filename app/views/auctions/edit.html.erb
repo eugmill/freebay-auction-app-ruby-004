@@ -1,1 +1,8 @@
-<%= render "form" %>
+<% unless @auction.closed? %>
+  <%= render "form" %>
+<% end %>
+
+<a href="/auctions/<%= @auction.id %>/end_auction">End Auction Early</a>
+<% if @auction.closed? %>
+  | <a href="/auctions/<%= @auction.id %>/delete">Delete Auction</a>
+<% end %>

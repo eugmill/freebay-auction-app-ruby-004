@@ -5,8 +5,9 @@ class Auction < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :end_time, :presence => true
 
-  validate :end_time_in_the_future, :on => :update
+  validate :end_time_in_the_future, :on => :update, :unless => :force_submit
 
+  attr_accessor :force_submit
 
   def end_time_in_the_future
     errors.add(:end_time, "can't be in the past") if self.end_time && self.end_time < Time.now
@@ -20,8 +21,15 @@ class Auction < ActiveRecord::Base
     self.bids.maximum("amount")
   end
 
- 
+  def highest_bid_object
+    self.bids.order(:amount => :desc).limit(1).first
+  end
 
+  def highest_bidder
+    self.highest_bid_object.bidder if highest_bid_object
+  end
 
-
+  def closed?
+    self.end_time < Time.now
+  end
 end

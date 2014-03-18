@@ -19,11 +19,16 @@ class BidsController < ApplicationController
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.new(bid_params)
     @bid.auction = @auction
-    if @bid.save
-      redirect_to @auction, :notice => "Bid successfully placed"
+    if not_users_own_auction?
+      if @bid.save
+        redirect_to @auction, :notice => "You are the current high bidder! Sorry!"
+      else
+        flash[:error] = @bid.errors.full_messages
+        render :new
+      end
     else
-      flash[:error] = @bid.errors.full_messages
-      render :new
+      flash[:error] = "You cannot bid on your own auction."
+      redirect_to @auction
     end
   end
 
@@ -33,5 +38,9 @@ class BidsController < ApplicationController
     params.require(:bid).permit(:amount)
   end
 
+  def not_users_own_auction?
+    @bid.bidder != current_user
+    binding.pry
+  end
 end
  

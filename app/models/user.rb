@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   validates :name, :uniqueness => true
 
+  def to_s
+    self.name
+  end
+
 end

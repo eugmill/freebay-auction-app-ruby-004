@@ -8,6 +8,8 @@ AuctionApp::Application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/auctions/:id/end_auction' => 'auctions#end_auction'
+  get '/auctions/:id/delete' => 'auctions#destroy'
 
   # get '/auction/:index/bids/new' => 'bids#new'
 

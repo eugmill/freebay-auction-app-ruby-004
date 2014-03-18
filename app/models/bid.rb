@@ -4,7 +4,8 @@ class Bid < ActiveRecord::Base
 
   before_save :convert_bid_to_cents
 
-  validate :higher_than_current
+  validate :higher_than_current?
+  validates :amount, :numericality => true
 
   def convert_bid_to_cents
     self.amount = (self.amount*100).to_i
@@ -18,12 +19,9 @@ class Bid < ActiveRecord::Base
     self.amount*100
   end
 
-  def higher_than_current
+  def higher_than_current?
     if !Bid.where("amount > ? AND auction_id = ?", amount_in_cents, self.auction.id).empty?
-      errors.add(:amount, "can't be lower than the current bid")
+      errors.add(:amount, "is too low! It can't be lower than the current bid, sorry.")
     end  
   end
-
-
-
 end
