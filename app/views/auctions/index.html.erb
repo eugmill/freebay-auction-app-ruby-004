@@ -1,7 +1,17 @@
 <h1>Active Auctions</h1>
-<% @auctions.each do |auction| %>
-<h2><%= link_to auction.title, auction %></h2>
-<p><%= auction.description %></p>
-<p><%= auction.end_time %></p>
-<hr />
-<% end %>
+<div class="row">
+  <% @auctions.each do |auction| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag(auction.picture(:thumb)) %>
+        <div class="caption">
+          <h3><%= link_to auction.title, auction %></h3>
+          <h5><%= "Current highest bid: #{number_to_currency(auction.highest_bid / 100) if auction.highest_bid}" %></h5>
+          <p><%= auction.description %></p>
+          <p><%= auction.end_time %></p>
+          <p><%= link_to "bid", new_auction_bid_path(auction), class: "btn btn-primary" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

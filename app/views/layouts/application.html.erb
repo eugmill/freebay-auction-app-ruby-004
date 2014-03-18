@@ -8,21 +8,31 @@
 </head>
 <body>
 
-<% if flash[:error] -%>
-  <p class='error'><%=h flash[:error] %></p>
-<% end -%>
-<% if flash[:notice] -%>
-  <p class='notice'><%=h flash[:notice] %></p>
-<% end -%>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <% if current_user %>
+      <%= link_to "Log Out", logout_path, class: "btn btn-default navbar-btn navbar-right" %>
+      <p class="navbar-text"><%= "#{current_user.name}" %></p>
+    <% else %>
+      <%= link_to "Register", new_user_path, class: "btn btn-default navbar-btn navbar-right" %>
+      <%= link_to "Log In", login_path, class: "btn btn-default navbar-btn navbar-right" %>
+    <% end %>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "All Auctions", auctions_path %></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <% if flash[:error] -%>
+  <p class='error alert alert-danger'><%=h flash[:error] %></p>
+  <% end -%>
+  <% if flash[:notice] -%>
+    <p class='notice alert alert-success'><%=h flash[:notice] %></p>
+  <% end -%>
 
-<% if current_user %>
-
-<%= "logged in as #{current_user.name}" %>
-<%= link_to "Log Out", logout_path %>
-
-<% end %>
-
-<%= yield %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

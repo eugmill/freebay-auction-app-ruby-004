@@ -4,7 +4,7 @@ AuctionApp::Application.routes.draw do
   resources :auctions do 
     resources :bids
   end
-
+  root 'auctions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
