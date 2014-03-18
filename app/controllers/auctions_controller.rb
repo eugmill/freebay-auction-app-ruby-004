@@ -26,6 +26,10 @@ class AuctionsController < ApplicationController
 
   def edit
     @auction = Auction.find(params[:id])
+    if @auction.seller_id != current_user.id
+      flash[:error] = "Please Log In As The Auction Owner To Update This Auction."
+      redirect_to login_path
+    end
     flash[:notice] = "Auction has ended, sorry!" if @auction.closed?
   end
 
