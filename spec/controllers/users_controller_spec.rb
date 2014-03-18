@@ -12,8 +12,8 @@ describe 'Part 2 UsersController Specs', :part_2_specs => true do
     describe 'POST create' do
       context 'with a unique name' do
         before do
-          User.create(name: "Bob")
-          post :create, user: { name: "Tina" }
+          User.create(name: "Bob", password: "password", password_confirmation: "password")
+          post :create, user: { name: "Tina", password: "password", password_confirmation: "password" }
         end
 
         it 'creates a new user' do
@@ -28,8 +28,8 @@ describe 'Part 2 UsersController Specs', :part_2_specs => true do
 
       context 'with an already-claimed name' do
         before do
-          User.create(name: "Bob")
-          post :create, user: { name: "Bob" }
+          User.create(name: "Bob", password: "password", password_confirmation: "password")
+          post :create, user: { name: "Bob", password: "password", password_confirmation: "password" }
         end
 
         it 'doesn\'t create a new user' do
