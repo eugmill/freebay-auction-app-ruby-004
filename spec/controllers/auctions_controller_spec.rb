@@ -95,7 +95,7 @@ describe 'Part 1 AuctionsController Specs', :part_1_specs => true do
     describe 'GET edit' do
       let!(:auction) { create(:auction) }
       before(:each) do
-        owner = User.create(id: auction.seller_id, name: "Name")
+        owner = User.create(id: auction.seller_id, name: "Name", password: "test", password_confirmation: "test")
         use_user_id(owner.id)
       end
 
