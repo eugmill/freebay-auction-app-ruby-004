@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_action :require_login, only: [:create, :update]
+  before_action :require_login, only: [:create, :update, :destroy]
 
   def index
     @auctions = Auction.get_active_auctions
@@ -40,10 +40,15 @@ class AuctionsController < ApplicationController
 
   def destroy 
     @auction = Auction.find(params[:id])
-    if @auction.destroy
-      redirect_to auctions_path
-    else 
-      render :edit 
+    if @auction.seller_id == current_user.id
+      if @auction.destroy
+        redirect_to auctions_path
+      else
+        render 'edit'
+      end
+    else
+      flash[:error] = "Please log in as the auction owner to delete this auction."
+      redirect_to login_path
     end  
   end
 

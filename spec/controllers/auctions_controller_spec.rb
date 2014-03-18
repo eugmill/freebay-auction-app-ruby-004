@@ -108,7 +108,7 @@ describe 'Part 1 AuctionsController Specs', :part_1_specs => true do
     describe 'PATCH update' do
       let!(:auction) { create(:auction) }
       before(:each) do
-        owner = User.create(id: auction.seller_id, name: "Owner")
+        owner = User.create(id: auction.seller_id, name: "Owner", password: "test", password_confirmation: "test")
         use_user_id(owner.id)
       end
       after(:each) do
@@ -118,7 +118,6 @@ describe 'Part 1 AuctionsController Specs', :part_1_specs => true do
       context 'an active auction' do
         before(:each) do
           Timecop.freeze(Chronic.parse('Jan 1 2014'))
-          binding.pry
           patch :update, { id: auction.id, auction: {
                                                      title: "Auction_1",
                                                      description: "Updated.",
@@ -161,7 +160,7 @@ describe 'Part 1 AuctionsController Specs', :part_1_specs => true do
       let!(:auction) { create(:auction) }
 
       before(:each) do
-        owner = User.create(id: auction.seller_id, name: "Delete Owner")
+        owner = User.create(id: auction.seller_id, name: "Delete Owner", password: "test", password_confirmation: "test")
         use_user_id(owner.id)
       end
 
@@ -260,8 +259,8 @@ describe 'Part 3 AuctionsController Specs', :part_3_specs => true do
   describe AuctionsController do
     describe 'DELETE destroy' do
       let!(:auction) { create(:auction) }
-      let!(:user_1) { User.create(id: auction.seller_id, name: "user_1") }
-      let!(:user_2) { User.create(id: auction.seller_id + 1, name: "user_2") }
+      let!(:user_1) { User.create(id: auction.seller_id, name: "user_1", password: "test", password_confirmation: "test") }
+      let!(:user_2) { User.create(id: auction.seller_id + 1, name: "user_2", password: "test", password_confirmation: "test") }
       
       context 'with a logged in user' do
         context 'when the user owns the auction' do
@@ -304,8 +303,8 @@ describe 'Part 3 AuctionsController Specs', :part_3_specs => true do
 
     describe 'PATCH update' do
       let!(:auction) { create(:auction) }
-      let!(:user_1) { User.create(id: auction.seller_id, name: "user_1") }
-      let!(:user_2) { User.create(id: auction.seller_id + 1, name: "user_2") }
+      let!(:user_1) { User.create(id: auction.seller_id, name: "user_1", password: "test", password_confirmation: "test") }
+      let!(:user_2) { User.create(id: auction.seller_id + 1, name: "user_2", password: "test", password_confirmation: "test") }
 
       context 'with a logged in user' do
         before(:each) do
