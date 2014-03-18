@@ -18,6 +18,7 @@ class BidsController < ApplicationController
   def create
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.new(bid_params)
+    @bid.bidder = current_user
     @bid.auction = @auction
     if not_users_own_auction?
       if @bid.save

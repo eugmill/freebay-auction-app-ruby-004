@@ -1,8 +1,12 @@
-<h2><%= @auction.title %></h2>
+<h2><%= link_to @auction.title, @auction %></h2>
 <p><%= @auction.description %></p>
 
 <% @bids.each do |bid| %>
-  <div>
-    <%= bid.amount  %>
-  </div>
+  <% if bid.bidder %>
+    <div>
+      <%= bid.bidder.name %> bid
+      <%= number_to_currency(bid.amount/100) %> at 
+      <%= bid.created_at.strftime("%a, %B %e, %Y - %l:%m:%M %p") %>
+    </div>
+  <% end %>
 <% end %>

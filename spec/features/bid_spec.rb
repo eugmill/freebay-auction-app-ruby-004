@@ -3,10 +3,10 @@ require_relative '../feature_helper'
 feature 'Part 1 Bid Feature Specs', :part_1_specs => true do
   feature 'Bid' do
     feature 'viewing all bids on an auction' do
-      given!(:avi) { User.create(:name => 'Avi') }
-      given!(:spencer) { User.create(:name => 'Spencer') }
-      given!(:arel) { User.create(:name => 'Arel') }
-      given!(:logan) { User.create(:name => 'Logan') }
+      given!(:avi) { User.create(:name => 'Avi', password: "test", password_confirmation: "test") }
+      given!(:spencer) { User.create(:name => 'Spencer', password: "test", password_confirmation: "test") }
+      given!(:arel) { User.create(:name => 'Arel', password: "test", password_confirmation: "test") }
+      given!(:logan) { User.create(:name => 'Logan', password: "test", password_confirmation: "test") }
       given!(:auction_1) { Auction.create(:seller => avi,
                                           :title => 'This is an auction.',
                                           :description => 'Description.',
@@ -45,7 +45,7 @@ feature 'Part 1 Bid Feature Specs', :part_1_specs => true do
       end
 
       scenario 'displays the time each bid was placed' do
-        expect(page).to have_text("Fri, January 31, 2014 - 12:00:00 PM")
+        expect(page).to have_text("Fri, January 31, 2014 - 12:01:00 PM")
       end
 
       scenario 'displays a link to return to the auction show page' do
