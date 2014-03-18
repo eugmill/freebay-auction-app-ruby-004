@@ -19,8 +19,8 @@ describe 'Part 1 BidsController Specs', :part_1_specs => true do
       let!(:bid) { build(:low_bid) }
 
       before(:each) do
-        User.create(id: auction.seller_id, name: 'user_1')
-        User.create(id: auction.seller_id + 1, name: 'user_2')
+        User.create(id: auction.seller_id, name: 'user_1', password: "test", password_confirmation: "test")
+        User.create(id: auction.seller_id + 1, name: 'user_2', password: "test", password_confirmation: "test")
         use_user_id(auction.seller_id + 1)
       end
 
@@ -77,8 +77,8 @@ describe 'Part 2 BidsController Specs', :part_2_specs => true do
   describe BidsController do
     describe 'POST create' do
       let!(:auction) { create(:auction) }
-      let!(:user_1) { User.create(id: auction.seller_id, name: 'user_1') }
-      let!(:user_2) { User.create(id: auction.seller_id + 1, name: 'user_2') }
+      let!(:user_1) { User.create(id: auction.seller_id, name: 'user_1', password: "test", password_confirmation: "test") }
+      let!(:user_2) { User.create(id: auction.seller_id + 1, name: 'user_2', password: "test", password_confirmation: "test") }
 
       context 'with a logged in user' do
         context 'on another user\'s auction' do

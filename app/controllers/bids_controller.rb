@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-
+  before_action :require_login, only: [:create]
   def index
     @auction = Auction.find(params[:auction_id])
     @bids = @auction.bids
