@@ -29,12 +29,16 @@ class AuctionsController < ApplicationController
 
   def update
     @auction = Auction.find(params[:id])
-    @auction.update(auction_params)
-     if @auction.save
-      redirect_to @auction
-    else 
-      flash[:error] = @auction.errors.full_messages
-      render :edit   
+     if @auction.seller_id == current_user.id
+      if @auction.update(auction_params)
+        redirect_to @auction
+      else 
+        flash[:error] = @auction.errors.full_messages
+        render :edit   
+      end
+    else
+      flash[:error] = "Please log in as the auction owner to update this auction."
+      redirect_to login_path
     end
   end
 
