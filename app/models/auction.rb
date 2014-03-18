@@ -4,6 +4,7 @@ class Auction < ActiveRecord::Base
 
   validates :title, :uniqueness => true
   validates :end_time, :presence => true
+  validates :seller_id, :presence => true
 
   validate :end_time_in_the_future, :on => :update, :unless => :force_submit
 
