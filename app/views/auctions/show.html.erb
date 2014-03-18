@@ -1,3 +1,5 @@
 <h2><%= @auction.title %></h2>
 <p><%= @auction.description %></p>
 <p><%= @auction.end_time %></p>
+<p><%= number_to_currency(@auction.highest_bid/100) if @auction.highest_bid %></p>
+<p><%= time_ago_in_words(@auction.end_time) if @auction.end_time %> left</p>

@@ -1,7 +1,7 @@
 class AuctionsController < ApplicationController
 
   def index
-    @auctions = Auction.all
+    @auctions = Auction.get_active_auctions
   end
 
   def new 
@@ -13,7 +13,8 @@ class AuctionsController < ApplicationController
     if @auction.save
       redirect_to @auction 
     else 
-      render :new   
+      flash[:error] = @auction.errors.full_messages
+      redirect_to auctions_path
     end
   end
 

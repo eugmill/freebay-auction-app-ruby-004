@@ -8,8 +8,8 @@
     <%= f.text_area :description %>
   </div>
   <div>
-    <%= f.label :end_time %>
-    <%= f.date_select :end_time, :default => Date.today %>
+    <%= f.label :end_time, "End Date" %>
+    <%= f.datetime_field :end_time, :default => Date.today %>
   </div>
   <div>
     <%= f.submit %>
