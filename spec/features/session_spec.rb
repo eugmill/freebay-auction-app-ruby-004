@@ -26,7 +26,7 @@ feature 'Part 2 Session Feature Specs', :part_2_specs => true do
 
     feature 'logging out' do
       scenario 'with a logged-in user' do
-        User.create(id: 1)
+        User.create(id: 1, password: "test", password_confirmation: "test")
         page.set_rack_session(user_id: 1)
         visit auctions_path
         click_link 'Log Out'
