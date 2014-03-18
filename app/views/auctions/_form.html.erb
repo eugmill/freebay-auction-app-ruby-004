@@ -1,4 +1,4 @@
-<%= form_for @auction do |f| %>
+<%= form_for @auction, html: {multipart: true} do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -10,6 +10,10 @@
   <div>
     <%= f.label :end_time, "End Date" %>
     <%= f.datetime_field :end_time, :default => Date.today %>
+  </div>
+  <div>
+  <%= f.label :picture, "Image" %>
+    <%= f.file_field :picture %>
   </div>
   <div>
     <%= f.submit %>

@@ -325,7 +325,7 @@ feature 'Part 3 Auction Feature Specs', :part_3_specs => true do
     feature 'creating a new auction' do
       scenario 'with an uploaded image' do
         create_auction(user_with_image.id, auction_with_image.title, auction_with_image.description, auction_with_image.end_time)
-
+        
         expect(current_path).to eq(auction_path(Auction.all.last))
         expect(page).to have_text(auction_with_image.title)
       end

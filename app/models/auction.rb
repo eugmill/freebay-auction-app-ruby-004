@@ -7,6 +7,8 @@ class Auction < ActiveRecord::Base
 
   validate :end_time_in_the_future, :on => :update, :unless => :force_submit
 
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
   attr_accessor :force_submit
 
   def end_time_in_the_future

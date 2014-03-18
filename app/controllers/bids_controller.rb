@@ -39,8 +39,7 @@ class BidsController < ApplicationController
   end
 
   def not_users_own_auction?
-    @bid.bidder != current_user
-    binding.pry
+    @bid.auction.seller != current_user
   end
 end
  

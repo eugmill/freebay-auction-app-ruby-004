@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318001206) do
+ActiveRecord::Schema.define(version: 20140318181706) do
 
   create_table "auctions", force: true do |t|
     t.integer  "seller_id"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20140318001206) do
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "bids", force: true do |t|
@@ -35,6 +39,10 @@ ActiveRecord::Schema.define(version: 20140318001206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end
